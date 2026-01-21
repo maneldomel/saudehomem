@@ -1,5 +1,6 @@
 import { MessageCircle } from 'lucide-react';
 import { useEffect, useState } from 'react';
+import { trackContact } from './utils/metaPixel';
 
 function App() {
   const whatsappNumber = '21969888896';
@@ -25,6 +26,11 @@ function App() {
   }, []);
 
   const handleWhatsAppClick = () => {
+    // Track WhatsApp click event
+    trackContact({
+      content_name: 'WhatsApp Button Click',
+      content_category: 'Contact',
+    });
     window.open(`https://wa.me/${whatsappNumber}`, '_blank');
   };
 
@@ -33,6 +39,14 @@ function App() {
       <main className="max-w-6xl mx-auto px-4 py-12 w-full">
         <div className="mb-8 md:mb-10">
           <div className="w-full max-w-4xl mx-auto">
+            <div className="text-center mb-6">
+              <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-3 px-4">
+                Dr. Drauzio Varela revela a verdadeira causa da falta de desempenho na cama que afeta homens acima dos 40
+              </h1>
+              <p className="text-lg md:text-xl text-gray-300 px-4">
+                Assista o vídeo agora e descubra
+              </p>
+            </div>
             <vturb-smartplayer
               id="vid-69701b2681b3e0e687bc20bb"
               style={{ display: 'block', margin: '0 auto', width: '100%', maxWidth: '900px' }}
